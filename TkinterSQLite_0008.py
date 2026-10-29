@@ -57,4 +57,14 @@ def proses():
 
     hasil = prediksi(gula, bmi, riwayat)
 
-   
+    # simpan ke database
+    cur.execute("INSERT INTO pasien (nama_pasien, usia, gula_darah, bmi, riwayat_ortu, hasil_prediksi) VALUES (?, ?, ?, ?, ?, ?)",
+                (nama, int(usia), gula, bmi, riwayat, hasil))
+    conn.commit()
+
+    # tampilkan hasil dengan warna
+    warna = {"Rendah": "green", "Waspada": "gold", "Sedang": "orange",
+             "Tinggi": "red", "Sangat Tinggi": "darkred"}
+    label_hasil.config(text="Risiko: " + hasil, bg=warna[hasil], fg="white")
+
+
