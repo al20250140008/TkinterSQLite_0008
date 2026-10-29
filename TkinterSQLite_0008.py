@@ -104,3 +104,10 @@ tk.Label(root, text="BMI").grid(row=3, column=0, padx=10, pady=5, sticky="w")
 entry_bmi = tk.Entry(root, width=25)
 entry_bmi.grid(row=3, column=1)
 
+tk.Label(root, text="Riwayat Diabetes Ortu").grid(row=4, column=0, padx=10, pady=5, sticky="w")
+combo_riwayat = ttk.Combobox(root, values=["Ya", "Tidak"], state="readonly", width=22)
+combo_riwayat.grid(row=4, column=1)
+
+tk.Button(root, text="Prediksi", width=12, command=proses).grid(row=5, column=0, pady=10)
+tk.Button(root, text="Lihat Data", width=12, command=lihat_data).grid(row=5, column=1, pady=10)
+
